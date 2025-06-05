@@ -1,0 +1,992 @@
+<!-- Grunge/Metal Fonts & Textures -->
+<!-- Puedes agregar más fuentes o texturas si lo deseas -->
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=UnifrakturCook:wght@700&family=Rock+Salt&display=swap" rel="stylesheet">
+<style>
+    html, body {
+        /* Fondo grunge con textura y ruido */
+        background: #181818 url('https://www.transparenttextures.com/patterns/grunge-wall.png') repeat;
+        /* Puedes cambiar la textura aquí */
+        min-height: 100%;
+    }
+    body {
+        font-family: 'UnifrakturCook', 'Metal Mania', 'Rock Salt', cursive, sans-serif;
+        color: #f3f3f3;
+        background-blend-mode: multiply;
+        letter-spacing: 0.5px;
+    }
+    /* Títulos agresivos */
+    h1, h2, h3, h4 {
+        font-family: 'Metal Mania', 'UnifrakturCook', 'Rock Salt', cursive, sans-serif;
+        color: #fff;
+        text-shadow: 2px 2px 8px #900, 0 0 2px #000, 0 0 1px #fff;
+        letter-spacing: 2px;
+        position: relative;
+        animation: title-glitch 1.2s cubic-bezier(.36,1.64,.56,1) both;
+    }
+    @keyframes title-glitch {
+        0% { text-shadow: 2px 2px 8px #900, 0 0 2px #000; transform: skewX(0deg);}
+        20% { text-shadow: 2px 2px 12px #900, 0 0 4px #fff; transform: skewX(-5deg);}
+        40% { text-shadow: 2px 2px 8px #900, 0 0 2px #000; transform: skewX(5deg);}
+        60% { text-shadow: 2px 2px 16px #900, 0 0 6px #fff; transform: skewX(-2deg);}
+        80% { text-shadow: 2px 2px 8px #900, 0 0 2px #000; transform: skewX(2deg);}
+        100% { text-shadow: 2px 2px 8px #900, 0 0 2px #000; transform: skewX(0deg);}
+    }
+    h1:hover, h2:hover, h3:hover {
+        animation: vibrate 0.3s linear infinite;
+        color: #ff2222;
+        filter: brightness(1.2) contrast(1.2);
+    }
+    @keyframes vibrate {
+        0% { transform: translate(0);}
+        20% { transform: translate(-2px, 2px);}
+        40% { transform: translate(-2px, -2px);}
+        60% { transform: translate(2px, 2px);}
+        80% { transform: translate(2px, -2px);}
+        100% { transform: translate(0);}
+    }
+    /* Botones agresivos */
+    button, .category-btn {
+        font-family: 'Metal Mania', 'UnifrakturCook', 'Rock Salt', cursive, sans-serif;
+        background: linear-gradient(90deg, #900 0%, #222 100%);
+        color: #fff;
+        border: 2px solid #900;
+        box-shadow: 0 2px 8px #900a, 0 0 2px #fff2;
+        transition: all 0.2s cubic-bezier(.36,1.64,.56,1);
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 2px #000;
+    }
+    button:hover, .category-btn:hover {
+        background: linear-gradient(90deg, #b00 0%, #444 100%);
+        color: #fff;
+        border-color: #fff;
+        filter: brightness(1.2) contrast(1.2);
+        transform: scale(1.05) rotate(-1deg);
+        box-shadow: 0 4px 16px #900c, 0 0 4px #fff4;
+    }
+    /* Inputs y formularios */
+    input, textarea {
+        background: #222 url('https://www.transparenttextures.com/patterns/diamond-upholstery.png') repeat;
+        color: #fff;
+        border: 1.5px solid #900;
+        font-family: 'Rock Salt', 'Metal Mania', cursive, sans-serif;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    input:focus, textarea:focus {
+        border-color: #fff;
+        outline: none;
+        box-shadow: 0 0 8px #900a;
+    }
+    /* Tarjetas y secciones */
+    .bg-gray-800, .bg-gray-900 {
+        background: #232323 url('https://www.transparenttextures.com/patterns/rocky-wall.png') repeat;
+        /* Cambia la textura si lo deseas */
+        border: 2px solid #900;
+        box-shadow: 0 2px 12px #900a, 0 0 2px #fff2;
+    }
+    /* Efecto de imagen: zoom y sombra al entrar o hover */
+    .grunge-img {
+        opacity: 0;
+        transform: scale(0.95) translateY(30px);
+        transition: all 0.7s cubic-bezier(.36,1.64,.56,1);
+        box-shadow: 0 2px 16px #900a, 0 0 4px #fff2;
+        border-radius: 8px;
+        border: 2px solid #900;
+        filter: grayscale(0.2) contrast(1.1) brightness(0.95);
+    }
+    .grunge-img.visible {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    .grunge-img:hover {
+        transform: scale(1.05) translateY(-4px) rotate(-1deg);
+        box-shadow: 0 6px 32px #900c, 0 0 8px #fff4;
+        filter: grayscale(0) contrast(1.2) brightness(1.1);
+        border-color: #fff;
+    }
+    /* Enlaces */
+    a {
+        color: #ff2222;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    a:hover {
+        color: #fff;
+        text-shadow: 0 0 6px #900, 0 0 2px #fff;
+    }
+    /* Scrollbar custom */
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: #181818;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #900;
+        border-radius: 5px;
+    }
+    /* Animación de fade-in para secciones */
+    .fade-in {
+        animation: fadeIn 1.2s cubic-bezier(.36,1.64,.56,1);
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    /* Efecto glitch para textos importantes */
+    .glitch {
+        position: relative;
+        color: #fff;
+        font-weight: bold;
+        animation: glitch 1s infinite linear alternate-reverse;
+    }
+    .glitch:before, .glitch:after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0; width: 100%;
+        overflow: hidden;
+        color: #ff2222;
+        z-index: -1;
+    }
+    .glitch:before {
+        top: -2px;
+        text-shadow: 2px 0 #900;
+        animation: glitchTop 1s infinite linear alternate-reverse;
+    }
+    .glitch:after {
+        top: 2px;
+        text-shadow: -2px 0 #fff;
+        animation: glitchBot 1s infinite linear alternate-reverse;
+    }
+    @keyframes glitch {
+        0% { text-shadow: 2px 2px #900, -2px -2px #fff;}
+        20% { text-shadow: -2px 2px #900, 2px -2px #fff;}
+        40% { text-shadow: 2px -2px #900, -2px 2px #fff;}
+        60% { text-shadow: 0 0 #900, 0 0 #fff;}
+        80% { text-shadow: 2px 2px #900, -2px -2px #fff;}
+        100% { text-shadow: -2px 2px #900, 2px -2px #fff;}
+    }
+    @keyframes glitchTop {
+        0% { left: 0;}
+        20% { left: 2px;}
+        40% { left: -2px;}
+        60% { left: 1px;}
+        80% { left: -1px;}
+        100% { left: 0;}
+    }
+    @keyframes glitchBot {
+        0% { left: 0;}
+        20% { left: -2px;}
+        40% { left: 2px;}
+        60% { left: -1px;}
+        80% { left: 1px;}
+        100% { left: 0;}
+    }
+</style>
+<script>
+    // Animación de imágenes al entrar en pantalla
+    document.addEventListener('DOMContentLoaded', function() {
+        const imgs = document.querySelectorAll('.grunge-img');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        imgs.forEach(img => observer.observe(img));
+    });
+</script>
+<!DOCTYPE html>
+<html lang="es" class="grunge-bg"></html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FVCK YEAH! | Tienda Rock & Metal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Metal Mania for heavy metal style -->
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .animate-pop {
+            animation: pop 0.3s cubic-bezier(.36,1.64,.56,1) both;
+        }
+        @keyframes pop {
+            0% { transform: scale(0.8);}
+            100% { transform: scale(1);}
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0;}
+            to { opacity: 1;}
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-black to-gray-800 text-gray-100 min-h-screen flex flex-col font-sans">
+
+    <!-- Header & Navbar -->
+    <header class="bg-black shadow-lg sticky top-0 z-50" role="banner">
+        <div class="container mx-auto flex flex-wrap items-center justify-between py-4 px-4">
+            <h1 class="text-4xl md:text-5xl font-bold" style="font-family: 'Metal Mania', cursive; letter-spacing: 2px;">
+                FVCK YEAH!
+            </h1>
+            <nav class="flex space-x-4 md:space-x-8 text-lg" aria-label="Menú principal">
+                <a href="#inicio" class="hover:text-red-600 transition">Inicio</a>
+                <a href="#destacados" class="relative overflow-hidden group">
+                    <span class="hover:text-red-600 transition">Tienda</span>
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-red-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                </a>
+                <a href="#historia-metal" class="relative overflow-hidden group">
+                    <span class="hover:text-red-600 transition">Blog</span>
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-red-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                </a>
+                <a href="#contacto-form" class="relative overflow-hidden group">
+                    <span class="hover:text-red-600 transition">Contacto</span>
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-red-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                </a>
+                <button id="btn-login" class="ml-4 px-3 py-1 bg-red-700 rounded hover:bg-red-800 transition animate-pop">Login</button>
+                <button id="btn-cart" class="relative ml-2 animate-pop" aria-label="Ver carrito">
+                    <svg class="w-7 h-7 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4"></path>
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                    </svg>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-xs rounded-full px-1">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Promocional -->
+    <div class="w-full bg-gradient-to-r from-red-900 via-black to-red-700 text-center py-3 text-lg font-bold tracking-widest fade-in" role="alert">
+        ¡Envío gratis por compras sobre 10.000 bs! | 10% OFF usando el código <span class="text-yellow-400">METAL10</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        <!-- Banner -->
+        <section id="inicio" class="relative bg-cover bg-center h-64 md:h-96 flex items-center justify-center" style="background-image: url('https://i.pinimg.com/originals/53/de/45/53de45a873fbe796c37cabff91d15f93.jpg');">
+            <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+            <div class="relative z-10 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4" style="font-family: 'Metal Mania', cursive;">¡Bienvenido a la tienda más brutal de Rock & Metal!</h2>
+                <p class="text-lg md:text-2xl">Discos, poleras, accesorios y mucho más para verdaderos metalheads.</p>
+            </div>
+        </section>
+            </section>
+        <!-- Carrusel de Noticias -->
+        <section class="container mx-auto py-10 px-4 fade-in" id="noticias-carrusel">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: 'Metal Mania', cursive;">Vlog/Blog Noticias</h3>
+            <div class="relative max-w-3xl mx-auto">
+            <div id="news-carousel" class="overflow-hidden rounded-lg shadow-lg relative h-72">
+                <!-- Slides se insertan por JS -->
+            </div>
+            <!-- Controles -->
+            <button id="prev-news" class="absolute left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white p-2 rounded-full z-10" aria-label="Anterior">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="next-news" class="absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white p-2 rounded-full z-10" aria-label="Siguiente">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            <!-- Indicadores -->
+            <div id="news-indicators" class="flex justify-center mt-4 space-x-2"></div>
+            <!-- Barra de progreso -->
+            <div id="news-progress" class="absolute bottom-0 left-0 w-full h-1 bg-gray-700">
+                <div id="news-progress-bar" class="h-full bg-red-700 transition-all duration-0" style="width:0%"></div>
+            </div>
+            </div>
+        </section>
+        <script>
+        const newsData = [
+            {
+            title: "Corona Capital: Deftones, Linkin Park, Foo Fighters y más",
+            desc: "El Corona Capital se realizará en México con bandas como Deftones, Linkin Park, Foo Fighters, entre otras. El festival promete ser uno de los eventos más grandes del año, reuniendo a miles de fanáticos del rock y metal en una experiencia inolvidable llena de energía y música en vivo.",
+            img: "https://www.infobae.com/resizer/v2/27WTQVKLPFE3HMBOWSWZLLF7AU.jpg?auth=a54488608f4315fccdd68fa77548d827cb8d895b02002e18b51748ca0d53736d",
+            link: "#"
+            },
+            {
+            title: "Return to Dust: ¡Nueva canción en camino!",
+            desc: "La banda Return to Dust lanzará una nueva canción próximamente. Los fans esperan ansiosos este nuevo sencillo, que promete mantener el estilo potente y melódico que caracteriza a la agrupación, consolidando su presencia en la escena metalera.",
+            img: "https://highwiredaze.b-cdn.net/wp-content/uploads/2023/07/rtd2-edit.jpg",
+            link: "#"
+            },
+            {
+            title: "Deftones regresa a los escenarios",
+            desc: "El regreso de Deftones a los escenarios está causando furor entre los fans. La banda ha anunciado una gira mundial con fechas en varios países, prometiendo shows llenos de intensidad y clásicos que han marcado generaciones.",
+            img: "https://www.1057thepoint.com/wp-content/uploads/2024/09/G_deftones_091724.jpg",
+            link: "#"
+            },
+            {
+            title: "Falling in Reverse vs Sleeping With Sirens",
+            desc: "El conflicto entre Falling in Reverse y Sleeping With Sirens se intensifica cada vez más. Las redes sociales arden con declaraciones cruzadas y los seguidores de ambas bandas esperan ver cómo se resuelve esta rivalidad en los próximos festivales.",
+            img: "https://lambgoat.com/cdn/2024/ronnie-radke-20241203083152.jpg",
+            link: "#"
+            },
+            {
+            title: "Oasis regresa, pero sin tanto revuelo",
+            desc: "El regreso de Oasis a los escenarios no está causando tanto revuelo como se esperaba. A pesar de la expectativa, la banda británica ha optado por una gira más íntima, enfocándose en sus fans más fieles y en la calidad de sus presentaciones.",
+            img: "https://fmrockandpop.com/media/k2/items/cache/b158bb7bca81c3cfab857b7b83083508_L.webp",
+            link: "#"
+            }
+        ];
+
+        const carousel = document.getElementById('news-carousel');
+        const indicators = document.getElementById('news-indicators');
+        const progressBar = document.getElementById('news-progress-bar');
+        let currentNews = 0, intervalId, progressId;
+        const AUTO_TIME = 6000;
+
+        function renderNewsSlide(idx, animate = true) {
+            const news = newsData[idx];
+            carousel.innerHTML = `
+            <div class="absolute inset-0 bg-cover bg-center transition-all duration-700 slide-sweep" style="background-image: url('${news.img}');"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div class="relative z-10 flex flex-col justify-end h-full p-6">
+                <h4 class="text-xl md:text-2xl font-bold mb-2" style="font-family: 'Metal Mania', cursive;">${news.title}</h4>
+                <p class="mb-3">${news.desc}</p>
+            </div>
+            `;
+            indicators.innerHTML = newsData.map((_, i) =>
+            `<button class="w-3 h-3 rounded-full ${i===idx?'bg-red-700':'bg-gray-500'}" style="outline:none;border:none;" aria-label="Ir a noticia ${i+1}"></button>`
+            ).join('');
+            carousel.setAttribute('aria-label', news.title);
+
+            // Barrido animado
+            if (animate) {
+            const slide = carousel.querySelector('.slide-sweep');
+            slide.style.clipPath = 'inset(0 100% 0 0)';
+            setTimeout(() => {
+                slide.style.transition = 'clip-path 0.7s cubic-bezier(.36,1.64,.56,1)';
+                slide.style.clipPath = 'inset(0 0 0 0)';
+            }, 10);
+            }
+            // Reinicia barra de progreso
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            setTimeout(() => {
+            progressBar.style.transition = `width ${AUTO_TIME}ms linear`;
+            progressBar.style.width = '100%';
+            }, 30);
+        }
+
+        function nextNews() {
+            currentNews = (currentNews + 1) % newsData.length;
+            renderNewsSlide(currentNews);
+        }
+        function prevNews() {
+            currentNews = (currentNews - 1 + newsData.length) % newsData.length;
+            renderNewsSlide(currentNews);
+        }
+        function goToNews(idx) {
+            currentNews = idx;
+            renderNewsSlide(currentNews);
+        }
+        document.getElementById('next-news').onclick = () => { nextNews(); resetAuto(); };
+        document.getElementById('prev-news').onclick = () => { prevNews(); resetAuto(); };
+        indicators.onclick = e => {
+            if(e.target.tagName === 'BUTTON') {
+            const idx = Array.from(indicators.children).indexOf(e.target);
+            goToNews(idx);
+            resetAuto();
+            }
+        };
+        function autoNews() {
+            clearInterval(intervalId);
+            clearInterval(progressId);
+            intervalId = setInterval(nextNews, AUTO_TIME);
+        }
+        function resetAuto() {
+            autoNews();
+            // Reinicia barra de progreso
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            setTimeout(() => {
+            progressBar.style.transition = `width ${AUTO_TIME}ms linear`;
+            progressBar.style.width = '100%';
+            }, 30);
+        }
+        renderNewsSlide(currentNews, false);
+        setTimeout(() => {
+            progressBar.style.transition = `width ${AUTO_TIME}ms linear`;
+            progressBar.style.width = '100%';
+        }, 30);
+        autoNews();
+
+        // Animación CSS para barrido
+        const style = document.createElement('style');
+        style.textContent = `
+        .slide-sweep {
+            clip-path: inset(0 100% 0 0);
+        }
+        `;
+        document.head.appendChild(style);
+        </script>
+        <!-- Categorías tipo tabs scroll horizontal -->
+        <section class="container mx-auto py-4 px-4">
+            <nav id="category-tabs" class="flex overflow-x-auto space-x-4 pb-2 border-b border-gray-700 snap-x" aria-label="Categorías de productos">
+                <button class="category-tab px-4 py-2 rounded-t font-bold bg-gray-900 text-red-500 border-b-2 border-red-700 snap-start focus:outline-none" data-category="Discos">Discos</button>
+                <button class="category-tab px-4 py-2 rounded-t font-bold bg-gray-900 text-gray-300 border-b-2 border-transparent snap-start focus:outline-none" data-category="Poleras">Poleras</button>
+                <button class="category-tab px-4 py-2 rounded-t font-bold bg-gray-900 text-gray-300 border-b-2 border-transparent snap-start focus:outline-none" data-category="Accesorios">Accesorios</button>
+                <button class="category-tab px-4 py-2 rounded-t font-bold bg-gray-900 text-gray-300 border-b-2 border-transparent snap-start focus:outline-none" data-category="Llaveros">Llaveros</button>
+                <button class="category-tab px-4 py-2 rounded-t font-bold bg-gray-900 text-gray-300 border-b-2 border-transparent snap-start focus:outline-none" data-category="Instrumentos">Instrumentos</button>
+            </nav>
+        </section>
+        <!-- Productos Destacados -->
+        <section class="container mx-auto py-10 px-4" id="destacados">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: 'Metal Mania', cursive;">Productos Destacados</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" id="featured-products">
+                <!-- Productos destacados se insertan por JS -->
+            </div>
+        </section>
+        <!-- Testimonios -->
+        <section class="container mx-auto py-10 px-4 fade-in" id="testimonios">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: 'Metal Mania', cursive;">Testimonios</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <p class="italic">"¡La mejor tienda metalera! Los productos son de calidad brutal y el envío fue rapidísimo."</p>
+                    <div class="mt-2 text-right font-bold text-red-400">- Juan Headbanger</div>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <p class="italic">"Compré una polera de Slayer y quedé fascinado. ¡Volveré por más!"</p>
+                    <div class="mt-2 text-right font-bold text-red-400">- Camila MetalQueen</div>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <p class="italic">"Excelente atención y variedad. ¡Recomendado para todo metalero!"</p>
+                    <div class="mt-2 text-right font-bold text-red-400">- Diego Thrash</div>
+                </div>
+            </div>
+        </section>
+        <script>
+        // ===================
+        // Datos de productos
+        // ===================
+        const products = {
+            Discos: [
+                {
+                    name: "Black Sabbath - Paranoid",
+                    desc: "Álbum icónico de Black Sabbath, lanzado en 1970. Incluye clásicos como 'Iron Man' y 'War Pigs'.",
+                    price: 95,
+                    img: "https://lastfm.freetls.fastly.net/i/u/ar0/e88b3980787c4714b79c3cab44986595.jpg" // Aquí puedes cambiar la imagen del producto si lo deseas
+                },
+                {
+                    name: "Metallica - Master of Puppets",
+                    desc: "El tercer álbum de Metallica, considerado uno de los mejores discos de thrash metal.",
+                    price: 100,
+                    img: "https://lastfm.freetls.fastly.net/i/u/ar0/07f492a00c904cc6ccf868010be4d5a6.jpg"
+                },
+                {
+                    name: "Iron Maiden - The Number of the Beast",
+                    desc: "Álbum fundamental del heavy metal británico, lanzado en 1982.",
+                    price: 85,
+                    img: "https://lastfm.freetls.fastly.net/i/u/ar0/4848a0ce2f98376b71c932e409e9afb4.jpg"
+                },
+                {
+                    name: "Judas Priest - Painkiller",
+                    desc: "Uno de los discos más potentes de Judas Priest, lanzado en 1990.",
+                    price: 90,
+                    img: "https://cdn-images.dzcdn.net/images/cover/2797e265f66e5e780dbd374f2e69ae7e/0x1900-000000-80-0-0.jpg"
+                },
+                {
+                    name: "Slayer - Reign in Blood",
+                    desc: "Álbum legendario de Slayer, considerado el pináculo del thrash metal.",
+                    price: 80,
+                    img: "https://cdn-images.dzcdn.net/images/cover/b7abf0b8b7f35c4eaf11be5c11fb40fb/0x1900-000000-80-0-0.jpg"
+                }
+            ],
+            Poleras: [
+                {
+                    name: "Polera Metallica",
+                    desc: "Polera oficial de Metallica, 100% algodón, estampado de alta calidad.",
+                    price: 180,
+                    img: "https://polerasaunclick.cl/wp-content/uploads/2021/02/BANNER-METLLICA-AND-JUSTICE-BLACK-1.jpg"
+                },
+                {
+                    name: "Polera Iron Maiden",
+                    desc: "Polera con el clásico Eddie de Iron Maiden. Tallas S a XL.",
+                    price: 200,
+                    img: "https://polerasaunclick.cl/wp-content/uploads/2024/01/BANNER-IRON-MAIDEN-STEVE-HARRIS-1.jpg"
+                },
+                {
+                    name: "Polera Slayer",
+                    desc: "Polera negra con logo de Slayer. Ideal para headbangers.",
+                    price: 170,
+                    img: "https://www.discoreal.cl/cdn/shop/files/slayer_530x@2x.png?v=1700980933"
+                },
+                {
+                    name: "Polera Black Sabbath",
+                    desc: "Polera con arte del álbum Paranoid. Edición limitada.",
+                    price: 220,
+                    img: "https://polerasaunclick.cl/wp-content/uploads/2024/11/BLACK-SABBATH-BLACK-SABBATH-POLERA-DE-HOMBRE.jpg"
+                },
+                {
+                    name: "Polera Judas Priest",
+                    desc: "Polera con logo clásico de Judas Priest. Tallas M a XXL.",
+                    price: 150,
+                    img: "https://polerasaunclick.cl/wp-content/uploads/2021/12/BANNER-JUDAS-PRIEST-PAINKILLER-1M.jpg"
+                }
+            ],
+            Accesorios: [
+                {
+                    name: "Pulsera de cuero",
+                    desc: "Pulsera de cuero con remaches metálicos, ajustable.",
+                    price: 35,
+                    img: "https://cdnx.jumpseller.com/sonec-store/image/11293815/resize/480/480?1647187992"
+                },
+                {
+                    name: "Púa personalizada",
+                    desc: "Púa de guitarra con diseño metalero, varios colores.",
+                    price: 10,
+                    img: "https://riff.mx/cdn/shop/t/2/assets/slideshow_2.jpg?v=123559842690810297241615586902"
+                },
+                {
+                    name: "Parche Iron Maiden",
+                    desc: "Parche bordado para chaquetas o mochilas.",
+                    price: 25,
+                    img: "https://www.uramoto.es/cdn/shop/products/parche-bordado-grupo-heavy-iron-maiden-con-su-mascota-eddie-800x800_E4TL61A.jpg?v=1646678767"
+                },
+                {
+                    name: "Collar pentagrama",
+                    desc: "Collar metálico con colgante de pentagrama.",
+                    price: 50,
+                    img: "https://http2.mlstatic.com/D_NQ_NP_653162-MLC28676332417_112018-O.webp"
+                },
+                {
+                    name: "Muñequeras Slayer",
+                    desc: "Par de muñequeras con logo de Slayer.",
+                    price: 40,
+                    img: "https://http2.mlstatic.com/D_NQ_NP_790927-MLC77268140626_072024-O-munequera-elasticada-slayer.webp"
+                }
+            ],
+            Llaveros: [
+                {
+                    name: "Llavero guitarra",
+                    desc: "Llavero metálico en forma de guitarra eléctrica.",
+                    price: 12,
+                    img: "https://m.media-amazon.com/images/I/61DiXyrisJL.jpg"
+                },
+                {
+                    name: "Llavero batería",
+                    desc: "Llavero con mini batería metálica.",
+                    price: 15,
+                    img: "https://xviolins.com/media/catalog/product/cache/4849a156643491ebf464c594023e6e86/l/l/llavero-musical-bateria.jpg"
+                },
+                {
+                    name: "Llavero bajo",
+                    desc: "Llavero de bajo eléctrico, ideal para bajistas.",
+                    price: 10,
+                    img: "https://i.etsystatic.com/32892789/r/il/4dceb8/4575033325/il_fullxfull.4575033325_bmhp.jpg"
+                },
+                {
+                    name: "Llavero calavera",
+                    desc: "Llavero con calavera metálica, estilo rock.",
+                    price: 8,
+                    img: "https://m.media-amazon.com/images/I/81ZF91ABd-L._AC_UF1000,1000_QL80_.jpg"
+                },
+                {
+                    name: "Llavero logo Metallica",
+                    desc: "Llavero con el logo clásico de Metallica.",
+                    price: 13,
+                    img: "https://makerworld.bblmw.com/makerworld/model/US59de2b74535659/196853045/instance/2025-01-08_d0b09f0653e1.jpg"
+                }
+            ],
+            Instrumentos: [
+                {
+                    name: "Piano eléctrico",
+                    desc: "Piano eléctrico de 88 teclas, ideal para estudio y escenario.",
+                    price: 7000,
+                    img: "https://rvb-img.reverb.com/image/upload/s--S9GahCoL--/a_exif,c_limit,e_unsharp_mask:80,f_auto,fl_progressive,g_south,h_620,q_90,w_620/v1426188036/agkp95aixe1khiutuyk5.jpg"
+                },
+                {
+                    name: "Guitarra eléctrica",
+                    desc: "Guitarra eléctrica tipo Stratocaster, varios colores.",
+                    price: 3500,
+                    img: "https://i0.wp.com/musicstroker.com/wp-content/uploads/2023/09/PSR-.SE-STANDARD-24-VINTAGE-CHERRY-L.jpg?fit=1080%2C1080&ssl=1"
+                },
+                {
+                    name: "Bajo eléctrico",
+                    desc: "Bajo eléctrico de 4 cuerdas, sonido potente.",
+                    price: 3200,
+                    img: "https://audiomusicacl.vtexassets.com/arquivos/ids/191353/1-bajo-electrico-fender-american-vintage-ii-1960-precision-bass-3-color-sunburst-1113261.jpg?v=638525238072870000"
+                },
+                {
+                    name: "Batería acústica",
+                    desc: "Set completo de batería acústica, incluye platillos.",
+                    price: 6500,
+                    img: "https://i0.wp.com/www.yamabol-srl.com/wp-content/uploads/2020/06/rydeen.jpg?resize=412%2C305&ssl=1"
+                },
+                {
+                    name: "Guitarra clásica",
+                    desc: "Guitarra clásica de madera, cuerdas de nylon.",
+                    price: 1000,
+                    img: "https://www.malaga8.com/modules/dbblog/views/img/post/220.jpg"
+                }
+            ]
+        };
+        // ==========================
+        // Historia del Metal Section
+        // ==========================
+        const historiaSection = document.createElement('section');
+        historiaSection.className = "container mx-auto py-10 px-4 fade-in";
+        historiaSection.id = "historia-metal";
+        historiaSection.innerHTML = `
+            <h3 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: 'Metal Mania', cursive;">Historia del Metal</h3>
+            <div class="bg-gray-900 rounded-lg shadow-lg p-6 md:p-8 text-lg leading-relaxed text-gray-200">
+            <p>
+                El <span class="font-bold text-red-400">heavy metal</span> nació a finales de los años 60 y principios de los 70, principalmente en el Reino Unido y Estados Unidos. Bandas pioneras como <span class="font-bold text-yellow-400">Black Sabbath</span>, <span class="font-bold text-yellow-400">Led Zeppelin</span> y <span class="font-bold text-yellow-400">Deep Purple</span> sentaron las bases con riffs potentes, letras oscuras y una actitud rebelde.
+            </p>
+            <p class="mt-4">
+                Durante los 80, el metal se diversificó en subgéneros como el <span class="font-bold text-red-400">thrash</span> (Metallica, Slayer), <span class="font-bold text-red-400">glam</span> (Mötley Crüe), <span class="font-bold text-red-400">power</span> (Helloween) y <span class="font-bold text-red-400">death metal</span> (Death, Morbid Angel). Cada uno aportó su propio estilo, velocidad y energía.
+            </p>
+            <p class="mt-4">
+                El metal ha evolucionado constantemente, fusionándose con otros géneros y expandiéndose globalmente. Hoy, sigue siendo un símbolo de <span class="font-bold text-yellow-400">libertad, rebeldía y pasión</span>, con millones de fans y festivales en todo el mundo. ¡El metal nunca muere!
+            </p>
+            </div>
+        `;
+        // Insertar la sección antes de los testimonios
+        const testimoniosSection = document.getElementById('testimonios');
+        testimoniosSection.parentNode.insertBefore(historiaSection, testimoniosSection);
+        // ==========================
+        // Formulario de contacto
+        // ==========================
+        const contactoSection = document.createElement('section');
+        contactoSection.className = "container mx-auto py-10 px-4 fade-in";
+        contactoSection.id = "contacto-form";
+        contactoSection.innerHTML = `
+            <h3 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: 'Metal Mania', cursive;">Contacto</h3>
+            <form id="form-contacto" class="bg-gray-900 rounded-lg shadow-lg p-6 md:p-8 max-w-xl mx-auto flex flex-col gap-4">
+            <label class="font-bold">Nombre:
+                <input type="text" name="nombre" required class="w-full mt-1 bg-gray-800 border border-red-700 rounded px-3 py-2 text-white" placeholder="Tu nombre" />
+            </label>
+            <label class="font-bold">Correo electrónico:
+                <input type="email" name="correo" required class="w-full mt-1 bg-gray-800 border border-red-700 rounded px-3 py-2 text-white" placeholder="tucorreo@email.com" />
+            </label>
+            <label class="font-bold">Mensaje:
+                <textarea name="mensaje" required rows="4" class="w-full mt-1 bg-gray-800 border border-red-700 rounded px-3 py-2 text-white" placeholder="Escribe tu mensaje aquí"></textarea>
+            </label>
+            <button type="submit" class="bg-red-700 hover:bg-red-800 text-white py-2 rounded font-bold transition mt-2">Enviar mensaje</button>
+            </form>
+        `;
+        testimoniosSection.parentNode.insertBefore(contactoSection, testimoniosSection.nextSibling);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('form-contacto');
+            if (form) {
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                showToast("¡Mensaje enviado! Pronto te contactaremos.");
+                form.reset();
+            };
+            }
+        });
+    // ===============
+    // Utilidades
+    // ===============
+    function formatBs(val) {
+        return `Bs ${val.toLocaleString("es-BO", {minimumFractionDigits: 2})}`;
+    }
+
+    // ===============
+    // Render productos
+    // ===============
+    const featuredContainer = document.getElementById('featured-products');
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    let currentCategory = "Discos";
+
+    function renderProducts(category) {
+        featuredContainer.innerHTML = "";
+        products[category].forEach((prod, idx) => {
+            const card = document.createElement('div');
+            card.className = "bg-gray-900 rounded-lg shadow-lg p-4 flex flex-col items-center cursor-pointer hover:scale-105 transition grunge-img";
+            card.tabIndex = 0;
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', prod.name);
+            card.innerHTML = `
+                <img src="${prod.img}" alt="${prod.name}" class="w-32 h-32 object-cover rounded mb-3 border-2 border-red-700" />
+                <div class="font-bold text-lg mb-1" style="font-family: 'Metal Mania', cursive;">${prod.name}</div>
+                <div class="text-sm mb-2 text-gray-300">${prod.desc.substring(0, 40)}...</div>
+                <div class="text-red-400 font-bold text-xl">${formatBs(prod.price)}</div>
+            `;
+            card.onclick = () => openProductModal(category, idx);
+            card.onkeypress = e => { if(e.key === "Enter") openProductModal(category, idx); };
+            featuredContainer.appendChild(card);
+        });
+        // Trigger fade-in for images
+        setTimeout(() => {
+            document.querySelectorAll('.grunge-img').forEach(img => img.classList.add('visible'));
+        }, 100);
+    }
+    renderProducts(currentCategory);
+
+    // ===============
+    // Tabs de categorías
+    // ===============
+    categoryTabs.forEach(tab => {
+        tab.onclick = () => {
+            categoryTabs.forEach(t => {
+                t.classList.remove('text-red-500', 'border-red-700');
+                t.classList.add('text-gray-300', 'border-transparent');
+            });
+            tab.classList.add('text-red-500', 'border-red-700');
+            tab.classList.remove('text-gray-300', 'border-transparent');
+            currentCategory = tab.dataset.category;
+            renderProducts(currentCategory);
+        };
+    });
+
+    // ===============
+    // Modal de producto
+    // ===============
+    let modal, overlay;
+    function openProductModal(category, idx) {
+        const prod = products[category][idx];
+        closeModal();
+        overlay = document.createElement('div');
+        overlay.className = "fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50";
+        overlay.onclick = e => { if(e.target === overlay) closeModal(); };
+        modal = document.createElement('div');
+        modal.className = "bg-gray-900 rounded-lg shadow-2xl p-6 max-w-md w-full animate-pop relative";
+        modal.innerHTML = `
+            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl font-bold" aria-label="Cerrar" id="close-modal">&times;</button>
+            <img src="${prod.img}" alt="${prod.name}" class="w-full h-56 object-contain rounded mb-4 border-2 border-red-700" />
+            <div class="font-bold text-2xl mb-2" style="font-family: 'Metal Mania', cursive;">${prod.name}</div>
+            <div class="mb-2 text-gray-300">${prod.desc}</div>
+            <div class="text-red-400 font-bold text-xl mb-2">${formatBs(prod.price)}</div>
+            <label class="block mb-2 font-bold">Unidades:
+                <input type="number" min="1" value="1" id="modal-qty" class="ml-2 w-16 bg-gray-800 border border-red-700 rounded px-2 py-1 text-white" />
+            </label>
+            <div class="mb-4">Total: <span id="modal-total" class="font-bold text-yellow-400">${formatBs(prod.price)}</span></div>
+            <button id="add-to-cart" class="w-full bg-red-700 hover:bg-red-800 text-white py-2 rounded font-bold transition">Agregar al carrito</button>
+        `;
+        document.body.appendChild(overlay);
+        overlay.appendChild(modal);
+
+        document.getElementById('close-modal').onclick = closeModal;
+        const qtyInput = document.getElementById('modal-qty');
+        const totalSpan = document.getElementById('modal-total');
+        qtyInput.oninput = () => {
+            let qty = Math.max(1, parseInt(qtyInput.value) || 1);
+            qtyInput.value = qty;
+            totalSpan.textContent = formatBs(prod.price * qty);
+        };
+        document.getElementById('add-to-cart').onclick = () => {
+            addToCart(category, idx, parseInt(qtyInput.value) || 1);
+            closeModal();
+        };
+        document.addEventListener('keydown', escCloseModal);
+    }
+    function closeModal() {
+        if (overlay) overlay.remove();
+        document.removeEventListener('keydown', escCloseModal);
+    }
+    function escCloseModal(e) {
+        if (e.key === "Escape") closeModal();
+    }
+
+    // ===============
+    // Carrito de compras
+    // ===============
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartBtn = document.getElementById('btn-cart');
+    const cartCount = document.getElementById('cart-count');
+
+    function updateCartCount() {
+        let count = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCount.textContent = count;
+    }
+    updateCartCount();
+
+    function addToCart(category, idx, qty) {
+        const prod = products[category][idx];
+        const key = `${category}-${idx}`;
+        let found = cart.find(item => item.key === key);
+        if (found) {
+            found.qty += qty;
+        } else {
+            cart.push({ key, category, idx, qty });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        showToast("Producto agregado al carrito");
+    }
+
+    function showToast(msg) {
+        let toast = document.createElement('div');
+        toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 bg-red-700 text-white px-6 py-2 rounded shadow-lg z-50 animate-pop";
+        toast.textContent = msg;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 1800);
+    }
+
+    // ===============
+    // Modal de carrito
+    // ===============
+    let discountApplied = false;
+    let discountCode = "";
+
+    cartBtn.onclick = openCartModal;
+
+    function openCartModal() {
+        closeModal();
+        overlay = document.createElement('div');
+        overlay.className = "fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50";
+        overlay.onclick = e => { if(e.target === overlay) closeModal(); };
+        modal = document.createElement('div');
+        modal.className = "bg-gray-900 rounded-lg shadow-2xl p-6 max-w-lg w-full animate-pop relative overflow-y-auto max-h-[90vh]";
+        modal.innerHTML = `
+            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl font-bold" aria-label="Cerrar" id="close-modal">&times;</button>
+            <div class="font-bold text-2xl mb-4" style="font-family: 'Metal Mania', cursive;">Carrito de compras</div>
+            <div id="cart-items"></div>
+            <form id="discount-form" class="flex items-center gap-2 mt-4 mb-2">
+                <input type="text" id="discount-code" class="bg-gray-800 border border-red-700 rounded px-2 py-1 text-white" placeholder="Código de descuento" value="${discountCode ? discountCode : ''}" />
+                <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-3 py-1 rounded font-bold transition">${discountApplied ? 'Aplicado' : 'Aplicar'}</button>
+            </form>
+            <div id="discount-msg" class="text-sm mb-2 ${discountApplied ? 'text-green-400' : 'text-red-400'}"></div>
+            <div class="mt-2 font-bold text-lg">Total: <span id="cart-total" class="text-yellow-400"></span></div>
+            <form id="order-form" class="mt-6">
+                <label class="block mb-2 font-bold">Dirección de entrega:
+                    <input type="text" required class="w-full bg-gray-800 border border-red-700 rounded px-2 py-1 text-white mt-1" id="delivery-address" placeholder="Ej: Calle Metal 666, La Paz" />
+                </label>
+                <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white py-2 rounded font-bold mt-4 transition">Realizar pedido</button>
+            </form>
+        `;
+        document.body.appendChild(overlay);
+        overlay.appendChild(modal);
+
+        document.getElementById('close-modal').onclick = closeModal;
+        renderCartItems();
+        renderCartTotal();
+
+        // Descuento
+        const discountForm = document.getElementById('discount-form');
+        const discountInput = document.getElementById('discount-code');
+        const discountMsg = document.getElementById('discount-msg');
+        discountForm.onsubmit = function(e) {
+            e.preventDefault();
+            const code = discountInput.value.trim().toUpperCase();
+            if (code === "METAL10") {
+                discountApplied = true;
+                discountCode = code;
+                discountMsg.textContent = "¡Código aplicado! 10% de descuento.";
+                discountMsg.className = "text-sm mb-2 text-green-400";
+                discountInput.disabled = true;
+                discountForm.querySelector('button').textContent = "Aplicado";
+            } else {
+                discountApplied = false;
+                discountCode = "";
+                discountMsg.textContent = "Código inválido.";
+                discountMsg.className = "text-sm mb-2 text-red-400";
+            }
+            renderCartTotal();
+        };
+        if (discountApplied) {
+            discountInput.disabled = true;
+            discountForm.querySelector('button').textContent = "Aplicado";
+            discountMsg.textContent = "¡Código aplicado! 10% de descuento.";
+            discountMsg.className = "text-sm mb-2 text-green-400";
+        }
+
+        document.getElementById('order-form').onsubmit = function(e) {
+            e.preventDefault();
+            showOrderSuccess();
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            discountApplied = false;
+            discountCode = "";
+            closeModal();
+        };
+        document.addEventListener('keydown', escCloseModal);
+    }
+
+    function renderCartItems() {
+        const itemsDiv = document.getElementById('cart-items');
+        if (!cart.length) {
+            itemsDiv.innerHTML = `<div class="text-gray-400 italic mb-4">El carrito está vacío.</div>`;
+            renderCartTotal();
+            return;
+        }
+        itemsDiv.innerHTML = "";
+        cart.forEach(item => {
+            const prod = products[item.category][item.idx];
+            const subtotal = prod.price * item.qty;
+            const div = document.createElement('div');
+            div.className = "flex items-center mb-3 border-b border-gray-700 pb-2";
+            div.innerHTML = `
+                <img src="${prod.img}" alt="${prod.name}" class="w-14 h-14 object-cover rounded mr-3 border-2 border-red-700" />
+                <div class="flex-1">
+                    <div class="font-bold">${prod.name}</div>
+                    <div class="text-sm text-gray-400">${formatBs(prod.price)} x ${item.qty} = <span class="text-yellow-400">${formatBs(subtotal)}</span></div>
+                </div>
+                <button class="ml-2 px-2 py-1 bg-red-700 hover:bg-red-800 text-white rounded remove-cart-item" data-key="${item.key}">&times;</button>
+            `;
+            div.querySelector('.remove-cart-item').onclick = () => {
+                cart = cart.filter(i => i.key !== item.key);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                renderCartItems();
+                renderCartTotal();
+            };
+            itemsDiv.appendChild(div);
+        });
+        renderCartTotal();
+    }
+
+    function renderCartTotal() {
+        const totalSpan = document.getElementById('cart-total');
+        let total = 0;
+        cart.forEach(item => {
+            const prod = products[item.category][item.idx];
+            total += prod.price * item.qty;
+        });
+        if (discountApplied) {
+            total = total * 0.9;
+        }
+        if (totalSpan) totalSpan.textContent = formatBs(total);
+    }
+
+    function showOrderSuccess() {
+        let success = document.createElement('div');
+        success.className = "fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50";
+        success.innerHTML = `
+            <div class="bg-gray-900 rounded-lg shadow-2xl p-8 max-w-md w-full animate-pop text-center">
+                <div class="text-3xl font-bold mb-4 text-yellow-400" style="font-family: 'Metal Mania', cursive;">¡Pedido realizado con éxito!</div>
+                <div class="mb-6 text-lg">¡Que viva el sexo, las minas y el rock and roll!</div>
+                <button class="bg-red-700 hover:bg-red-800 text-white py-2 px-6 rounded font-bold transition" id="close-success">Cerrar</button>
+            </div>
+        `;
+        document.body.appendChild(success);
+        document.getElementById('close-success').onclick = () => success.remove();
+    }
+
+    </script>
+    <!-- Footer -->
+    <footer class="bg-black text-gray-300 py-8 mt-10 border-t border-red-900">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <span class="font-bold text-lg" style="font-family: 'Metal Mania', cursive;">¡Que viva el metal!</span>
+            </div>
+            <div class="flex space-x-6 justify-center">
+                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-red-500 transition">
+                    <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.632.771-1.632 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-red-500 transition">
+                    <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm5.25.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="hover:text-red-500 transition">
+                    <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22.46 5.924c-.793.352-1.645.59-2.54.698a4.48 4.48 0 0 0 1.963-2.475 8.94 8.94 0 0 1-2.828 1.082 4.48 4.48 0 0 0-7.633 4.086A12.72 12.72 0 0 1 3.112 4.89a4.48 4.48 0 0 0 1.387 5.976 4.45 4.45 0 0 1-2.03-.561v.057a4.48 4.48 0 0 0 3.594 4.393 4.48 4.48 0 0 1-2.025.077 4.48 4.48 0 0 0 4.185 3.116A8.98 8.98 0 0 1 2 19.54a12.68 12.68 0 0 0 6.88 2.018c8.26 0 12.78-6.84 12.78-12.78 0-.195-.004-.39-.013-.583A9.22 9.22 0 0 0 24 4.59a8.94 8.94 0 0 1-2.54.698z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="mt-6 text-center text-xs text-gray-500">
+            &copy; 2024 FVCK YEAH! | Tienda Rock & Metal. Todos los derechos reservados.
+        </div>
+    </footer>
+</body>
+</html>
